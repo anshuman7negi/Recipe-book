@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'shoping_list/index'
   get 'recipe_foods/new'
   get 'recipes/index'
   get 'recipes/show'
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
   resources :recipes, only: [:index, :new, :create, :destroy, :show] do
   resources :recipe_foods, only: [:new,:create, :destroy]
   end
+  resources :shoping_list, only: [:index]
   root to: 'foods#index'
 
 end

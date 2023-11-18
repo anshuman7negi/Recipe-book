@@ -1,0 +1,12 @@
+<h1>RecipeFoods</h1>
+
+<%= form_for  @recipe_food, url: recipe_recipe_foods_path do |form| %>
+
+    <%= form.label :quantity %>
+    <%= form.number_field :quantity, min: 1, value: 1, required: true %>
+    <%= form.collection_select :foods_id, current_user.foods, :id, :name, { include_blank: false } %> 
+    <%= link_to "Add new food", new_food_path %>
+    <%= form.submit "Add ingredient" %>
+    
+<% end %>
+  

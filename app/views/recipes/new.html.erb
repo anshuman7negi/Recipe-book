@@ -1,0 +1,23 @@
+<h1>Add recipe details</h1>
+
+<%= form_for @recipe do |f| %>
+        
+   <%= f.label :name, "name" %> <br>
+   <%= f.text_field :name %> <br>
+
+   <%= f.label :cooking_time %> <br>
+   <%= f.number_field :cooking_time %> <br>
+
+   <%= f.label :preparation_time %> <br>
+   <%= f.number_field :preperation_time %> <br>
+
+   <%= f.label :description %> <br>
+   <%= f.text_field :description %> <br>
+
+   <%= f.label :public %> <br>
+   <%= f.check_box :public %><br>
+
+   <%= f.submit "Create Recipe" %>
+    
+   <br>
+<% end %>

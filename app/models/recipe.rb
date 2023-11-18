@@ -3,5 +3,5 @@ class Recipe < ApplicationRecord
     attribute :public, :boolean, default: true
 
     belongs_to :user
-    has_many :recipe_foods
+    has_many :recipe_foods, foreign_key: 'recipes_id', dependent: :destroy
 end

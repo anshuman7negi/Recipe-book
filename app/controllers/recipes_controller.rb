@@ -13,13 +13,13 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(recipe_parmas)
+    @recipe = Recipe.new(recipe_params)
     @recipe.users_id = current_user.id;
     
     if @recipe.save
       redirect_to recipes_path, notice: "Recipe succesfully created"
     else
-      render new
+      render :new
     end
   end
 
@@ -32,8 +32,8 @@ class RecipesController < ApplicationController
 
   private
 
-  def recipe_parmas
-    params.require(:recipe).permit(:name, :cooking_time, :preperation_time, :description, :public)
-  end
-
+  def recipe_params
+     params.require(:recipe).permit(:name, :cooking_time, :preperation_time, :description, :public)
+   end
+  
 end

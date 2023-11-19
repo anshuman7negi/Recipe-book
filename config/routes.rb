@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     authenticated :user do
       root :to => 'foods#index', as: :authenticated_root
     end
+    unauthenticated :user do
+      root :to => 'recipes#public_recipes', as: :unauthenticated_root
+    end
   end
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -19,6 +22,7 @@ Rails.application.routes.draw do
   resources :recipe_foods, only: [:new,:create, :destroy]
   end
   resources :shoping_list, only: [:index]
-  root to: 'foods#index'
+
+  get '/public_recipes', to: 'recipes#public_recipes', as: 'public_recipes'
 
 end

@@ -9,7 +9,7 @@
    <p>Cooking time: <%= @recipe.cooking_time %> <%= "hour".pluralize(@recipe.cooking_time) %></p>
    <p> <%= @recipe.description%> </p>
 
-   <% if current_user.id == @recipe.users_id %>
+   <% if current_user == @recipe.user %>
    <div id="recipe_actions">
      <%= link_to "Generate shopping list", foods_path %>
      <%= link_to "Add ingredient", new_recipe_recipe_food_path(@recipe.id) %>

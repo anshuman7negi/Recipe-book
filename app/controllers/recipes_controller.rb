@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  load_and_authorize_resource
+  
   def index
     @recipes = current_user.recipes
   end
@@ -28,6 +30,11 @@ class RecipesController < ApplicationController
     if @recipe.destroy
       redirect_to recipes_path, notice: "Recipe removed successfully"
     end
+  end
+
+  def public_recipes
+    authorize! :public_recipes, Recipe
+    @recipes = Recipe.where(public: true).order(id: :asc)
   end
 
   private

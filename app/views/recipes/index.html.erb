@@ -1,0 +1,22 @@
+<h1>Recipes</h1>
+<%= link_to "Add Recipe", new_recipe_path %>
+
+
+<ul>
+  <% if @recipes.any?%>
+      <% @recipes.each do |recipe| %>
+        <li>
+         <h2><%= link_to recipe.name, recipe_path(recipe.id) %></h2>
+         <%= recipe.description %> <br>
+         <%= button_to "Delete", recipe, method: :delete, data: {confirm: "Are your sure"} %>
+        </li>
+      <%end%>
+  <%else%>
+     <li>
+       No  recipes added by you
+     </li>
+  <%end%>
+</ul>
+
+
+

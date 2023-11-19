@@ -1,5 +1,5 @@
 <nav class="navbar">
-    <a href="#">Recipe App</a>
+    <%= link_to "Recipe Book", '/public_recipes' %>
       <div class="nav-list">
         <% if user_signed_in? %>
           <%= link_to "Foods", foods_path %>
